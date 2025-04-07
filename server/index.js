@@ -26,6 +26,10 @@ app.use(express.json());
 // });
 
 app.use(cookieParser());
+app.use((req, res, next) => {
+    console.log("Origin:", req.headers.origin);
+    next();
+  });
 // allowing requests from http://localhost:3000 to your backend server
 app.use(
     cors({
@@ -34,6 +38,7 @@ app.use(
         credentials: true
     })
 )
+
 
 // File upload middleware
 app.use(
