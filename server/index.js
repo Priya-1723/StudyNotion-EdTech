@@ -28,13 +28,22 @@ app.use(express.json());
 app.use(cookieParser());
 
 // allowing requests from http://localhost:3000 to your backend server
-app.use(
-    cors({
-        origin: "https://study-notion-ed-tech-frontend-blond.vercel.app",
-        // origin: "*",
-        credentials: true
-    })
-)
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://study-notion-ed-tech-frontend-blond.vercel.app"
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      console.log("CORS incoming origin:", origin); 
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }));
 
 app.use((req, res, next) => {
     console.log("Origin:", req.headers.origin);
