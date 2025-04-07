@@ -29,7 +29,7 @@ app.use(cookieParser());
 // allowing requests from http://localhost:3000 to your backend server
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://study-notion-ed-tech-frontend-blond.vercel.app",
         // origin: "*",
         credentials: true
     })
