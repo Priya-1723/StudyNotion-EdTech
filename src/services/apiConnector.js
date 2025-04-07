@@ -1,6 +1,7 @@
 import axios from 'axios'; //Axios is imported to handle HTTP requests such as GET, POST, PUT, DELETE, etc.
 
 export const axiosInstance = axios.create({
+    withCredentials: true,
     // baseURL: API_BASE_URL,
 }) //allows creating a custom Axios instance with pre-configured settings like base URL, default headers, etc.
 
