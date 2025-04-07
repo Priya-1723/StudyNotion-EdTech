@@ -30,7 +30,8 @@ app.use(cookieParser());
 // allowing requests from http://localhost:3000 to your backend server
 const allowedOrigins = [
     "http://localhost:3000",
-    "https://study-notion-ed-tech-frontend-blond.vercel.app"
+    "https://study-notion-ed-tech-frontend-blond.vercel.app",
+    "https://study-notion-ed-tech-frontend-8ekwv8szm.vercel.app",
   ];
   
   app.use(cors({
